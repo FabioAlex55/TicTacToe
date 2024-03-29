@@ -2,14 +2,12 @@
 import React, { useState } from 'react';
 import { Grid } from './grid';
 
-let data = ["","","","","","","","",""];
-
 export const TicTacToe = () => {
+    const [gameState, setGameState] = useState(["X","O","X","","","","","",""]);
+    const [count, setCount] = useState(0);
+    const [lock, setLock] = useState(false);
 
-    let [count,setCount] = useState(0);
-    let [lock,setLock] = useState(false);
-
-    const toggle = (e : any,num : any) => {
+    const toggle = (e : any, num : any) => {
         if(lock) {
             return 0;
         }
@@ -31,7 +29,7 @@ export const TicTacToe = () => {
     return (
         <div className='game'>
            <h1 className='title'>Tic-Tac-Toe</h1> 
-                <Grid/>
+                <Grid gameState={gameState} />
                 <button className="reset">Reset</button>
         </div>
     )

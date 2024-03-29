@@ -1,8 +1,40 @@
-.row{
-display: flex;
+.cell{
+    display: flex;
+    height: 200px;
+    width: 200px;
+    background: #9fb6ac;
+    border: 5px solid #000;
+    border-radius: 15px;
+    cursor: pointer;
 }
 
-.cell{
-    padding: 15px;
-    border: 1px solid #000;
+.grid{
+    display: flex;
+    height: 600px;
+    width: 625px;
+    margin: auto;
+}
+
+body{
+    background:#0c9159;
+}
+
+.game{
+    text-align: center;
+}
+.title{
+    color: rgb(15, 31, 44);
+}
+.reset{
+    width: 200px;
+    height: 100px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50px;
+    background: #6e916b;
+    font-size: 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: rgb(44, 73, 73);
 }

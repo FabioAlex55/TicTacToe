@@ -4,20 +4,20 @@ import "./globals.css";
 export const Grid = ({}) => {
     return (
         <div className="grid">
-            <div className="row">
-                <div className="cell">cell</div>
-                <div className="cell">cell</div>
-                <div className="cell">cell</div>
+            <div className="row1">
+                <div className="cell"></div>
+                <div className="cell"></div>
+                <div className="cell"></div>
             </div>
-            <div className="row">
-                <div className="cell">cell</div>
-                <div className="cell">cell</div>
-                <div className="cell">cell</div>
+            <div className="row2">
+                <div className="cell"></div>
+                <div className="cell"></div>
+                <div className="cell"></div>
             </div>
-            <div className="row">
-                <div className="cell">cell</div>
-                <div className="cell">cell</div>
-                <div className="cell">cell</div>
+            <div className="row3">
+                <div className="cell"></div>
+                <div className="cell"></div>
+                <div className="cell"></div>
             </div>
         </div> 
     )

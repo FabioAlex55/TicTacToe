@@ -1,7 +1,6 @@
+"use client" 
 import React, { useState } from 'react';
 import { Grid } from './grid';
-import circle_icon from '../resources/circle.jpg';
-import cross_icon from '../resources/cross.jpg';
 
 let data = ["","","","","","","","",""];
 
@@ -10,18 +9,18 @@ export const TicTacToe = () => {
     let [count,setCount] = useState(0);
     let [lock,setLock] = useState(false);
 
-    const toggle = (e,num) => {
+    const toggle = (e : any,num : any) => {
         if(lock) {
             return 0;
         }
         if(count%2===0)
         {
-            e.target.innerHTML = `<img src='${cross_icon}'>`;
+            e.target.innerHTML = `<img src='/resources/cross.jpg'>`;
             data[num] = "x";
             setCount(++count);
         }
         else{
-            e.target.innerHTML = `<img src='${circle_icon}'>`;
+            e.target.innerHTML = `<img src='/resources/circle.jpg'>`;
             data[num] = "o";
             setCount(++count);
         }

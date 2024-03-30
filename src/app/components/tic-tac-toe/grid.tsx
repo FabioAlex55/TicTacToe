@@ -1,33 +1,31 @@
 import React, { FC } from "react"
-import "./globals.css";
+import "./globals.css"
+import { Cell } from "./cell"
+import { GameState } from "./tic-tac-toe"
+
 
 type GridProps = {
-    gameState: string[]
+    gameState: GameState
+    toggle: ( cellIndex: number) => void
 }
 
 export const Grid: FC<GridProps> = (props) => {
     const gameState = props.gameState
 
+    const handleClickCell = (cellIndex: number) => () => props.toggle(cellIndex)
+
     return (
         <div className="grid">
-            <div className="row1">
-                <div className="cell">
-                    <img src='/resources/cross.jpg' />
-                    {gameState[0]}
-                </div>
-                <div className="cell">{gameState[1]}</div>
-                <div className="cell">{gameState[2]}</div>
-            </div>
-            <div className="row2">
-                <div className="cell">{gameState[3]}</div>
-                <div className="cell">{gameState[4]}</div>
-                <div className="cell">{gameState[5]}</div>
-            </div>
-            <div className="row3">
-                <div className="cell">{gameState[6]}</div>
-                <div className="cell">{gameState[7]}</div>
-                <div className="cell">{gameState[8]}</div>
-            </div>
-        </div> 
+            {[0,1,2].map((rowIndex) => (
+                <div className="row">
+                    {[0,1,2].map((cellIndex) => (
+                    <Cell
+                        onClick={handleClickCell(rowIndex * 3 + cellIndex)}
+                        value={gameState[rowIndex * 3 + cellIndex]}
+                    />
+                    ))}
+                    </div>
+            ))}
+        </div>
     )
 }

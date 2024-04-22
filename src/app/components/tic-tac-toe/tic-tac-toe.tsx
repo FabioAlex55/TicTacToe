@@ -40,30 +40,26 @@ export const TicTacToe = () => {
         setCount(0)
     }
 
-    const cellWinner : CellValue = useMemo(()=> {
-        // verification of winner or false
-        if(gameState[0] === gameState[1] && gameState[1] === gameState[2] ||
-            gameState[3] === gameState[4] && gameState[4] === gameState[5] ||
-            gameState[6] === gameState[7] && gameState[7] === gameState[8] ||
-            gameState[0] === gameState[3] && gameState[3] === gameState[6] ||
-            gameState[1] === gameState[4] && gameState[4] === gameState[7] ||
-            gameState[2] === gameState[5] && gameState[5] === gameState[8] ||
-            gameState[0] === gameState[4] && gameState[4] === gameState[8] ||
-            gameState[2] === gameState[4] && gameState[4] === gameState[6])
-            
-        //if O win
-        return 'O'
-
-        //if X win
-
-        return 'X'
-        
-        //if draw
-
-        return ''
+    function checkWin(gameState: GameState): CellValue | "" {
+        const winningCombos: number[][] = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], 
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], 
+            [0, 4, 8], [2, 4, 6] 
+        ];
     
-    },[gameState])
+         
+        for (const combo of winningCombos) {
+            const [a, b, c] = combo;
+            if (gameState[a] && gameState[a] === gameState[b] && gameState[b] === gameState[c]) {
+                return gameState[a]; 
+            }
+        }
+    
+        return ""; // No winner yet
+    }
 
+
+    const winningPlayer: CellValue | "" = checkWin(gameState);
     
 
     return (
@@ -72,7 +68,7 @@ export const TicTacToe = () => {
                 <Grid gameState={gameState} toggle={toggle} />
                 <button className="reset" onClick={handleReset}>Reset</button>
                 {/* todo- get winner here */}
-                <p>Winner {cellWinner}</p>
+                <p>Winner {winningPlayer}</p>
         </div>
     )
 }

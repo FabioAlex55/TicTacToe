@@ -68,7 +68,7 @@ export const TicTacToe = () => {
                 <Grid gameState={gameState} toggle={toggle} />
                 <button className="reset" onClick={handleReset}>Reset</button>
                 {/* todo- get winner here */}
-                <p>Winner {winningPlayer}</p>
+                <p>Winner Winner {winningPlayer} !!</p>
         </div>
     )
 }
